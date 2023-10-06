@@ -1,0 +1,7 @@
+pip install flask
+
+pip install mysql-connector-python #Conectar BD
+
+pip install flask-socketio #Web-sockets
+
+pip install python-dotenv #Variables de entorno
