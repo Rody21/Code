@@ -21,9 +21,9 @@ def actualizar_datos():
     app.config['dataParking'] = data
     app.config['dataTotal'] = total
 
-# Configuración de la tarea programada para actualizar datos cada 5 segundos
+# Configuración de la tarea programada para actualizar datos cada 2 segundos
 scheduler = BackgroundScheduler()
-scheduler.add_job(actualizar_datos, 'interval', seconds=5)
+scheduler.add_job(actualizar_datos, 'interval', seconds=2)
 scheduler.start()
 
 # Ruta principal que muestra los datos almacenados en la configuración de la aplicación
