@@ -6,7 +6,7 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        <div class= "column">
+        <div class="column">
             <h2 class="text-center">Estado de espacios</h2>
         </div>
     </div>
@@ -14,31 +14,6 @@
 
 <h3>Total espacios</h3> {{ dataTotal }}
 <div class="row">
-    {% if (dataParking) %}
-    <table>
-        <thead>
-            <tr>
-                <th>N°</th>
-                <th>Piso</th>
-                <th>Espacio</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            {% for c in dataParking %}
-            <tr>
-                <td>{{ c.idParking }}</td>
-                <td>{{ c.id_controlador }}</td>
-                <td>{{ c.id_sensor }}</td>
-                <td>{{ c.valor }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    {% else %}
-    <p style="text-align: center;"> Error, no hay datos disponibles para mostrar</p>
-    {% endif %}
+    <div id="data-container"></div> <!-- Aquí se mostrarán los datos procesados -->
 </div>
 {% endblock %}

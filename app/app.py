@@ -1,42 +1,44 @@
-from flask import Flask,  render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, jsonify
+from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from confiDB import *
 from dotenv import load_dotenv
 from querys import *
-from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 
-socketio = SocketIO(app)
-
-@app.route('/', methods=['GET','POST'])
-def inicio():
+# Función para realizar la consulta a la base de datos y actualizar los datos
+def actualizar_datos():
     conexion_MySQLdb = connectionBD()
     mycursor = conexion_MySQLdb.cursor(dictionary=True)
-    querySQL = (SELECT_ALL)
+    querySQL = SELECT_ORDER
     mycursor.execute(querySQL)
     data = mycursor.fetchall()
     total = mycursor.rowcount
     mycursor.close()
     conexion_MySQLdb.close()
-    print(total)
-    return render_template('index.html', dataParking = data, dataTotal = total)
+    print(f"Actualización de datos a las {datetime.now()}: {total} registros")
+    app.config['dataParking'] = data
+    app.config['dataTotal'] = total
 
+# Configuración de la tarea programada para actualizar datos cada 5 segundos
+scheduler = BackgroundScheduler()
+scheduler.add_job(actualizar_datos, 'interval', seconds=5)
+scheduler.start()
 
-@socketio.on('connect')
-def handle_connect():
-    print('Cliente conectado')
+# Ruta principal que muestra los datos almacenados en la configuración de la aplicación
+@app.route('/', methods=['GET', 'POST'])
+def inicio():
+    data = app.config.get('dataParking', [])
+    total = app.config.get('dataTotal', 0)
+    return render_template('index.html', dataParking=data, dataTotal=total)
 
-    
-@socketio.on('consulta_base_de_datos')
-def consultar_base_de_datos():
-    # Realiza una consulta a la base de datos para obtener los nuevos datos
-    nuevos_datos = inicio()
+@app.route('/get_data')
+def get_data():
+    data = app.config.get('dataParking', [])
+    return jsonify(data)
 
-    # Emite los nuevos datos a todos los clientes conectados
-    emit('actualizar_tabla', nuevos_datos, broadcast=True)
-
-
+# Manejo de errores 404
 @app.errorhandler(404)
 def not_found(error):
     return redirect(url_for('inicio'))
@@ -44,4 +46,3 @@ def not_found(error):
 if __name__ == '__main__':
     load_dotenv()
     app.run(debug=True)
-    socketio.run(app)
