@@ -1,8 +1,32 @@
 {% extends './layout.html' %}
+{% block css%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Foot1.css') }}">{% endblock%}
+
 
 {% block tittle %}Foot1{% endblock %}
 
 {% block body %}
+<div class="Estado_1">
+    <div class="Number_1">
+        <span id="cantidad_uno">0</span>
+    </div>
+
+    <div class="Texto_1">
+        <p>Disponibles</p>
+    </div>
+</div>
+
+<div class="Estado_2">
+    <div class="Number_2">
+        <span id="cantidad_cero">0</span>
+    </div>
+
+    <div class="Texto_2">
+        <p>Ocupados</p>
+    </div>
+</div>
+
+
 <div class="container">
     <div id="A1" class="Piso1 Park">
         <p>A01</p>

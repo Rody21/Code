@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block tittle %} {% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Parking.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/Parking.css') }}"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    {% block css%} {%endblock%}
 </head>
 
 <header>
@@ -35,6 +36,10 @@
 <body>
     {% block body %}
     {% endblock %}
+
+    <!-- <div class="footer">
+        <h2>Marlon Guete - Isaac Barake</h2>
+    </div> -->
     <script src="{{ url_for('static', filename='js/layout.js') }}"></script>
 </body>
 

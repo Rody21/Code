@@ -1,9 +1,9 @@
-if (window.location.pathname === "/Page1") {
-  function Dfoot1() {
-    fetch("/get_data_1")
+if (window.location.pathname === "/Page4") {
+  function Dfoot4() {
+    fetch("/get_data_4")
       .then((response) => response.json())
       .then((data) => {
-        const Espacios = document.getElementsByClassName("Piso1");
+        const Espacios = document.getElementsByClassName("Piso4");
         let countOne = 0;
         let countZero = 0;
 
@@ -41,8 +41,8 @@ if (window.location.pathname === "/Page1") {
   }
 
   // Llama a la función para actualizar datos inicialmente
-  Dfoot1();
+  Dfoot4();
 
   // Programa la actualización cada 1 segundos
-  setInterval(Dfoot1, 1000);
+  setInterval(Dfoot4, 1000);
 }

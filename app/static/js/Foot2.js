@@ -1,9 +1,10 @@
-if (window.location.pathname === "/Page1") {
-  function Dfoot1() {
-    fetch("/get_data_1")
+// Verifica si estás en la página Foot2 antes de ejecutar Dfoot2
+if (window.location.pathname === "/Page2") {
+  function Dfoot2() {
+    fetch("/get_data_2")
       .then((response) => response.json())
       .then((data) => {
-        const Espacios = document.getElementsByClassName("Piso1");
+        const Espacios = document.getElementsByClassName("Piso2");
         let countOne = 0;
         let countZero = 0;
 
@@ -12,7 +13,7 @@ if (window.location.pathname === "/Page1") {
           console.log(Espacios[i]);
           div_process = Espacios[i];
           if (index_1 == 0) {
-            //Desocupado
+            // Desocupado
             if (div_process.classList.contains("Desocupado")) {
               countOne++;
               console.log(countZero);
@@ -21,7 +22,7 @@ if (window.location.pathname === "/Page1") {
               div_process.classList.add("Desocupado", "Park");
             }
           } else {
-            //Ocupado
+            // Ocupado
             if (div_process.classList.contains("Ocupado")) {
               countZero++;
               console.log(countOne);
@@ -41,8 +42,8 @@ if (window.location.pathname === "/Page1") {
   }
 
   // Llama a la función para actualizar datos inicialmente
-  Dfoot1();
+  Dfoot2();
 
-  // Programa la actualización cada 1 segundos
-  setInterval(Dfoot1, 1000);
+  // Programa la actualización cada 1 segundo
+  setInterval(Dfoot2, 1000);
 }

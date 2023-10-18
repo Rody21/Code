@@ -1,0 +1,313 @@
+body .container .Piso3 {
+    position: absolute;
+    display: flex;
+
+    width: 75.5px;
+    height: 24px;
+    transform: rotate(270deg);
+}
+
+body .container .Rot {
+    transform: rotate(0deg);
+}
+
+body .container .Park {
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20%;
+    border: 2px solid #567DF4;
+    background-color: #F3F6FF;
+}
+
+body .Estado_1 {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+
+    display: flex;
+    width: 277px;
+    height: 83px;
+    padding: 7px 25px 7px 7px;
+    align-items: center;
+    gap: 33px;
+    flex-shrink: 0;
+    justify-content: space-between;
+
+    border-radius: 16px;
+    background: #567DF4;
+}
+
+
+body .Estado_1 .Texto_1 {
+    color: #FFF;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: right;
+}
+
+body .Estado_1 .Number_1 {
+    display: flex;
+    padding: 19px 36px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 10px;
+    background: #FFF;
+}
+
+
+body .Estado_2 {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+
+    display: flex;
+    width: 277px;
+    height: 83px;
+    padding: 7px 25px 7px 7px;
+    align-items: center;
+    gap: 33px;
+    flex-shrink: 0;
+    justify-content: space-between;
+
+    border-radius: 16px;
+    background: #FF317B;
+}
+
+
+body .Estado_2 .Texto_2 {
+    color: #FFF;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: right;
+}
+
+body .Estado_2 .Number_2 {
+    display: flex;
+    padding: 19px 36px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 10px;
+    background: #FFF;
+}
+
+
+body .container #C1 {
+    top: 40%;
+    left: 0.5%;
+}
+
+body .container #C2 {
+    top: 40%;
+    left: 3%;
+}
+
+body .container #C3 {
+    top: 40%;
+    left: 5.5%;
+}
+
+body .container #C4 {
+    top: 40%;
+    left: 8%;
+}
+
+body .container #C5 {
+    top: 70%;
+    left: 0.5%;
+}
+
+body .container #C6 {
+    top: 70%;
+    left: 3%;
+}
+
+body .container #C7 {
+    top: 70%;
+    left: 5.5%;
+}
+
+body .container #C8 {
+    top: 70%;
+    left: 8%;
+}
+
+body .container #C9 {
+    top: 40%;
+    left: 11.5%;
+}
+
+body .container #C10 {
+    top: 40%;
+    left: 14%;
+}
+
+body .container #C11 {
+    top: 40%;
+    left: 16.5%;
+}
+
+body .container #C12 {
+    top: 40%;
+    left: 19%;
+}
+
+body .container #C13 {
+    top: 70%;
+    left: 11.5%;
+}
+
+body .container #C14 {
+    top: 70%;
+    left: 14%;
+}
+
+body .container #C15 {
+    top: 70%;
+    left: 16.5%;
+}
+
+body .container #C16 {
+    top: 70%;
+    left: 19%;
+}
+
+body .container #C17 {
+    top: 40%;
+    left: 22.5%;
+}
+
+body .container #C18 {
+    top: 40%;
+    left: 25%;
+}
+
+body .container #C19 {
+    top: 40%;
+    left: 27.5%;
+}
+
+body .container #C20 {
+    top: 40%;
+    left: 31%;
+}
+
+body .container #C21 {
+    top: 40%;
+    left: 33.5%;
+}
+
+body .container #C22 {
+    top: 40%;
+    left: 36%;
+}
+
+body .container #C23 {
+    top: 40%;
+    left: 39.5%;
+}
+
+body .container #C24 {
+    top: 40%;
+    left: 42%;
+}
+
+body .container #C25 {
+    top: 40%;
+    left: 44.5%;
+}
+
+body .container #C26 {
+    top: 40%;
+    left: 47%;
+}
+
+body .container #C27 {
+    top: 40%;
+    left: 50.5%;
+}
+
+body .container #C28 {
+    top: 40%;
+    left: 53%;
+}
+
+body .container #C29 {
+    top: 40%;
+    left: 55.5%;
+}
+
+body .container #C30 {
+    top: 40%;
+    left: 59%;
+}
+
+body .container #C31 {
+    top: 40%;
+    left: 61.5%;
+}
+
+body .container #C32 {
+    top: 40%;
+    left: 64%;
+}
+
+body .container #C33 {
+    top: 40%;
+    left: 67.5%;
+}
+
+body .container #C34 {
+    top: 40%;
+    left: 70%;
+}
+
+body .container #C35 {
+    top: 40%;
+    left: 72.5%;
+}
+
+body .container #C36 {
+    top: 40%;
+    left: 75%;
+}
+
+body .container #C37 {
+    top: 70%;
+    left: 72.5%;
+}
+
+body .container #C38 {
+    top: 65%;
+    left: 72.5%;
+}
+
+body .container .Ocupado {
+    background-image: url(../img/car-pink.png);
+    background-position: center;
+    width: 75.5px;
+    height: 24px;
+    color: transparent;
+    /* background-color: pink; */
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20%;
+    border: 2px solid #567DF4;
+}
+
+body .container .Desocupado {
+    background-image: none;
+}
