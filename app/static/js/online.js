@@ -61,5 +61,5 @@ function actualizarDatos() {
 // Llama a la función para actualizar datos inicialmente
 actualizarDatos();
 
-// Programa la actualización cada 0.1 segundos
-setInterval(actualizarDatos, 100);
+// Programa la actualización cada 1 segundos
+setInterval(actualizarDatos, 1000);

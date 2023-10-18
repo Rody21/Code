@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block tittle %} {% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Parking.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
 </head>
+
+<header>
+    <div id="Icono">
+        <h2>PF-Parking</h2>
+    </div>
+
+    <div>
+        <a href="/Page1">Piso 1</a>
+    </div>
+    <div>
+        <a href="/Page2">Piso 2</a>
+    </div>
+    <div>
+        <a href="/Page3">Piso 3</a>
+    </div>
+    <div>
+        <a href="/Page4">Piso 4</a>
+    </div>
+    <div>
+        <a href="/Page5">Piso 5</a>
+    </div>
+</header>
+
 <body>
     {% block body %}
     {% endblock %}
     <script src="{{ url_for('static', filename='js/layout.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/online.js') }}"></script>
 </body>
+
 </html>

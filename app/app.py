@@ -11,7 +11,7 @@ app = Flask(__name__)
 def actualizar_datos():
     conexion_MySQLdb = connectionBD()
     mycursor = conexion_MySQLdb.cursor(dictionary=True)
-    querySQL = SELECT_ORDER
+    querySQL = SELECT_FOOT1
     mycursor.execute(querySQL)
     data = mycursor.fetchall()
     total = mycursor.rowcount
@@ -23,7 +23,7 @@ def actualizar_datos():
 
 # Configuración de la tarea programada para actualizar datos cada 2 segundos
 scheduler = BackgroundScheduler()
-scheduler.add_job(actualizar_datos, 'interval', seconds=2)
+scheduler.add_job(actualizar_datos, 'interval', seconds=10)
 scheduler.start()
 
 # Ruta principal que muestra los datos almacenados en la configuración de la aplicación
@@ -31,12 +31,16 @@ scheduler.start()
 def inicio():
     data = app.config.get('dataParking', [])
     total = app.config.get('dataTotal', 0)
-    return render_template('index.html', dataParking=data, dataTotal=total)
+    return render_template('Foot1.html', dataParking=data, dataTotal=total)
 
 @app.route('/get_data')
 def get_data():
     data = app.config.get('dataParking', [])
     return jsonify(data)
+
+@app.route('/Page1')
+def otra_pagina():
+    return render_template("Foot1.html")
 
 # Manejo de errores 404
 @app.errorhandler(404)
