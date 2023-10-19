@@ -32,11 +32,11 @@ programador4 = configurar_programador(SELECT_FOOT4, 10, 'dataParking4')
 programador5 = configurar_programador(SELECT_FOOT5, 10, 'dataParking5')
 
 # Ruta principal que muestra los datos almacenados en la configuración de la aplicación
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def inicio():
-    data = app.config.get('dataParking1', [])
-    total = app.config.get('dataTotal1', 0)
-    return render_template('Foot1.html', dataParking=data, dataTotal=total)
+    # data = app.config.get('dataParking1', [])
+    # total = app.config.get('dataTotal1', 0)
+    return render_template('index.html')
 
 @app.route('/get_data_1')
 def get_data_1():

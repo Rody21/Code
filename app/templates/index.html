@@ -1,30 +1,28 @@
-{% extends './layout.html' %}
+<!DOCTYPE html>
+<html lang="es">
 
-{% block tittle %}Parking{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
 
-
-{% block body %}
-<div class="container">
-    <div class="row">
-        <div class="column">
-            <h2 class="text-center">Estado de espacios</h2>
+<body>
+    <!-- <header>
+        <div id="Icono">
+            <h2>PF-Parking</h2>
         </div>
-    </div>
-</div>
+    </header> -->
 
-<div class="row">
-    <div class="text-center">
-        <a href="/Page1">Ir a otra página</a>
-    </div>
-</div>
+    <section class="form-login">
+        <h5>Login</h5>
+        <input class="controls" type="text" name="suario" value="" placeholder="Usuario">
+        <input class="controls" type="password" name="password" value="" placeholder="Contraseña">
+        <input class="buttons" type="submit" name="" value="Ingresar">
+        <input class="buttons" type="submit" name="" value="Registrarse">
+    </section>
+</body>
 
-<div>
-    <h3>Total espacios</h3>
-    <span id="total">
-</div>
-</span>
-<div class="row">
-    <div id="data-container"></div> <!-- Aquí se mostrarán los datos procesados -->
-</div>
-<script src="{{ url_for('static', filename='js/online.js') }}"></script>
-{% endblock %}
+</html>
