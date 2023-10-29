@@ -5,3 +5,11 @@ pip install mysql-connector-python #Conectar BD
 pip install flask-socketio #Web-sockets
 
 pip install python-dotenv #Variables de entorno
+
+pip install apscheduler #Ejecutar en segundo plano
+
+pip install flask-login #Manejo de usuarios
+
+pip install flask-WTF #Token autenticacion
+
+pip install flask-mysqldb #Consulta BD

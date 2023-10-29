@@ -3,10 +3,10 @@ import mysql.connector
 
 def connectionBD():
     mydb = mysql.connector.connect(
-        host = os.getenv("HOST"),
-        user = os.getenv("USER"),
-        passwd = os.getenv("PASSWORD"),
-        database = os.getenv("DB")
+        host = "database-1.c4zfdvzds5m5.us-east-1.rds.amazonaws.com",
+        user = "admin",
+        passwd = "Lolipop23",
+        database = "PF"
     )
     if mydb:
         print("Conexion exitosa")

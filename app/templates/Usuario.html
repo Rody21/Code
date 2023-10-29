@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Usuario.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="Icono">
+            <h3 href="/Inicio">PF-Parking</h3>
+        </div>
+
+        <div id="Logout">
+            <a href="/">Cerrar cesion</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="Asignacion">
+            <div class="banner">
+                <p>Se le ha asignado el espacio: </p>
+            </div>
+
+            <div class="Space">
+                <span id="Assing">0</span>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/Usuario.js') }}"></script>
+</body>
+
+</html>

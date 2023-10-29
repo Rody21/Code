@@ -2,3 +2,4 @@
 *.env
 *PF
 querys.py
+config.py
