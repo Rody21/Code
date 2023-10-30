@@ -15,7 +15,6 @@ def actualizar_datos(query, data_key):
     conexion_MySQLdb = connectionBD()
     mycursor = conexion_MySQLdb.cursor(dictionary=True)
     mycursor.execute(query)
-    print(query)
     data = mycursor.fetchall()
     total = mycursor.rowcount
     mycursor.close()
@@ -134,6 +133,13 @@ def Piso4():
 @app.route('/Page5')
 def Piso5():
     return render_template("Foot5.html")
+
+@app.route('/Graphics')
+def Graphics():
+     # Datos para el gráfico circular
+    labels = ['Etiqueta 1', 'Etiqueta 2', 'Etiqueta 3']
+    data = [50, 40, 10]
+    return render_template("Graphics.html", labels=labels, data=data)
 
 @app.route('/Usuario')
 def Usuario():

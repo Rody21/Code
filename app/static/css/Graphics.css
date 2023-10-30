@@ -1,0 +1,18 @@
+body .container {
+    display: flex;
+    width: 100%;
+}
+
+h1{
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+content{
+    width: 30%;
+    height: 30%;
+}
+
+canvas{
+    max-width: 100%;
+}

@@ -1,0 +1,38 @@
+{% extends './layout.html' %}
+{% block css%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Graphics.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock%}
+
+
+{% block tittle %}Estadisticas{% endblock %}
+
+{% block body %}
+<div class="container">
+    <section class="content">
+        <h1>Piso 1</h1>
+        <canvas id="Piso1" class="Data_1"></canvas>
+    </section>
+
+    <section class="content">
+        <h1>Piso 2</h1>
+        <canvas id="Piso2" class="Data_1"></canvas>
+    </section>
+
+    <section class="content">
+        <h1>Piso 3</h1>
+        <canvas id="Piso3" class="Data_1"></canvas>
+    </section>
+
+    <section class="content">
+        <h1>Piso 4</h1>
+        <canvas id="Piso4" class="Data_1"></canvas>
+    </section>
+
+    <section class="content">
+        <h1>Piso 5</h1>
+        <canvas id="Piso5" class="Data_1"></canvas>
+    </section>
+</div>
+<script src="{{ url_for('static', filename='js/Graphics.js') }}"></script>
+{% endblock %}
