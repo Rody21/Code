@@ -29,7 +29,7 @@ if (window.location.pathname === "/Usuario") {
           return letrasControlador[idControlador] || "Piso no valido";
         }
 
-        const modo = MODO_MANUAL;
+        const modo = MODO_MANUAL; //Modo de asignacion de usuarios
         asignarUbicacion(data, modo);
 
         function asignarUbicacion(data, modo) {
@@ -47,7 +47,6 @@ if (window.location.pathname === "/Usuario") {
           const letra = obtenerLetraControlador(controlador);
           console.log(controlador, sensor);
 
-
           actualizarElementoHTML(letra + posicion, controlador, sensor);
         }
 
@@ -60,11 +59,18 @@ if (window.location.pathname === "/Usuario") {
           const Span_Visual = document.getElementById("Assing");
           Span_Visual.textContent = texto;
           Verificacion(controlador, sensor);
-          const querySql = `UPDATE Parking SET asignado = 1 WHERE (id_controlador = '${controlador}' AND id_sensor = '${sensor}')`;
-          // Enviar el query SQL al servidor Flask
+
+          const data = {
+            controlador: controlador,
+            sensor: sensor,
+          };
+
           fetch("/actualizar_asignado", {
             method: "POST",
-            body: querySql,
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
           })
             .then((response) => {
               if (response.ok) {
@@ -86,7 +92,7 @@ if (window.location.pathname === "/Usuario") {
   Assing();
 
   function Verificacion(controlador, sensor) {
-    fetch("/get_data_Usuario")
+    fetch("/get_data_Usuario1")
       .then((response) => response.json())
       .then((data) => {
         var encontrado = false;

@@ -9,30 +9,108 @@
 
 {% block body %}
 <div class="container">
-    <section class="content">
-        <h1>Piso 1</h1>
-        <canvas id="Piso1" class="Data_1"></canvas>
-    </section>
+    <div class="fila"> <!-- Fila piso 1 -->
+        <section class="content">
+            <h1>Piso 1</h1>
+            <canvas id="Piso1" class="Data_1"></canvas>
+        </section>
 
-    <section class="content">
-        <h1>Piso 2</h1>
-        <canvas id="Piso2" class="Data_1"></canvas>
-    </section>
+        <section class="content">
+            <h1>Discapacitados</h1>
+            <canvas id="Discapacitados1" class="Data_1"></canvas>
+        </section>
 
-    <section class="content">
-        <h1>Piso 3</h1>
-        <canvas id="Piso3" class="Data_1"></canvas>
-    </section>
+        <section class="content">
+            <h1>Visitantes</h1>
+            <canvas id="Visitantes1" class="Data_1"></canvas>
+        </section>
+    </div>
 
-    <section class="content">
-        <h1>Piso 4</h1>
-        <canvas id="Piso4" class="Data_1"></canvas>
-    </section>
+    <div class="fila"> <!-- Fila piso 2 -->
+        <section class="content">
+            <h1>Piso 2</h1>
+            <canvas id="Piso2" class="Data_1"></canvas>
+        </section>
 
-    <section class="content">
-        <h1>Piso 5</h1>
-        <canvas id="Piso5" class="Data_1"></canvas>
-    </section>
+        <section class="content">
+            <h1>Discapacitados</h1>
+            <canvas id="Discapacitados2" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Visitantes</h1>
+            <canvas id="Visitantes2" class="Data_1"></canvas>
+        </section>
+    </div>
+
+    <div class="fila"> <!-- Fila piso 3 -->
+        <section class="content">
+            <h1>Piso 3</h1>
+            <canvas id="Piso3" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Discapacitados</h1>
+            <canvas id="Discapacitados3" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Visitantes</h1>
+            <canvas id="Visitantes3" class="Data_1"></canvas>
+        </section>
+    </div>
+
+    <div class="fila"> <!-- Fila piso 4 -->
+        <section class="content">
+            <h1>Piso 4</h1>
+            <canvas id="Piso4" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Discapacitados</h1>
+            <canvas id="Discapacitados4" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Visitantes</h1>
+            <canvas id="Visitantes4" class="Data_1"></canvas>
+        </section>
+    </div>
+
+
+    <div class="fila"> <!-- Fila piso 5 -->
+        <section class="content">
+            <h1>Piso 5</h1>
+            <canvas id="Piso5" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Discapacitados</h1>
+            <canvas id="Discapacitados5" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Visitantes</h1>
+            <canvas id="Visitantes5" class="Data_1"></canvas>
+        </section>
+    </div>
+
+    <div class="fila"> <!-- Fila Total -->
+        <section class="content">
+            <h1>Total</h1>
+            <canvas id="Total" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Discapacitados</h1>
+            <canvas id="DiscapacitadosT" class="Data_1"></canvas>
+        </section>
+
+        <section class="content">
+            <h1>Visitantes</h1>
+            <canvas id="VisitantesT" class="Data_1"></canvas>
+        </section>
+    </div>
 </div>
 <script src="{{ url_for('static', filename='js/Graphics.js') }}"></script>
 {% endblock %}

@@ -1,13 +1,16 @@
-from flask import Flask, render_template, url_for, redirect, jsonify, Response, session, request
+from flask import Flask, render_template, url_for, redirect, jsonify, Response, session, request, jsonify
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 from confiDB import *
 from dotenv import load_dotenv
 from querys import *
-
+from config import *
+import re
+import logging
+import pymysql
 
 app = Flask(__name__)
-
+app.logger.setLevel(logging.INFO) 
 app.secret_key = '36e42c5ca26b572eef30e0573a6701614eb86e828bf60d9c41b5edfcc50b8dad'
 
 # Función para realizar la consulta a la base de datos y actualizar los datos
@@ -34,6 +37,8 @@ programador3 = configurar_programador(SELECT_FOOT3, 10, 'dataParking3')
 programador4 = configurar_programador(SELECT_FOOT4, 10, 'dataParking4')
 programador5 = configurar_programador(SELECT_FOOT5, 10, 'dataParking5')
 programador6 = configurar_programador(ASIGNACION, 10, 'asignacion')
+programador7 = configurar_programador(ADMIN_U, 10, 'data_U')
+programador8 = configurar_programador(ASIGNACION1, 10, 'asignacion1')
 
 @app.route('/')
 def index():
@@ -49,7 +54,7 @@ def login():
         
         conexion_User = connectionBD()
         mycursor = conexion_User.cursor()
-        mycursor.execute('SELECT * FROM Usuarios WHERE username = %s AND password = %s', (_username,_password,))
+        mycursor.execute(USUARIOS, (_username,_password,))
         data_U = mycursor.fetchone()
         
         if data_U:
@@ -67,22 +72,77 @@ def login():
     return render_template('index.html')
 
 
+# Configura la conexión a la base de datos MySQL
+db_params = {
+    'host': HOST,
+    'user': USER,
+    'password': PASSWORD,
+    'db': DB,
+    'charset': 'utf8mb4',
+    'cursorclass': pymysql.cursors.DictCursor,
+}
+
 @app.route('/actualizar_asignado', methods=['POST'])
 def actualizar_asignado():
-    query_sql = request.get_data().decode('utf-8')
-    # Ejecuta el query SQL en la base de datos
     try:
-        print(query_sql)
-        conexion_MySQLdb = connectionBD()
-        mycursor = conexion_MySQLdb.cursor(dictionary=True)
-        mycursor.execute(query_sql)
-        mycursor.close()
-        conexion_MySQLdb.close()
-        
-        return "Actualización de la base de datos exitosa"
+        data = request.get_json()
+        controlador = data['controlador']
+        sensor = data['sensor']
+
+        # Conecta a la base de datos MySQL
+        connection = pymysql.connect(**db_params)
+
+        # Crea un cursor
+        cursor = connection.cursor()
+
+        # Realiza la actualización en la base de datos
+        query = UPDATE_ASIG
+        cursor.execute(query, (controlador, sensor))
+
+        # Confirma la transacción
+        connection.commit()
+
+        # Cierra la conexión
+        cursor.close()
+        connection.close()
+
+        return jsonify({'mensaje': 'Registro actualizado correctamente'})
+
     except Exception as e:
-        return "Error en la actualización de la base de datos: " + str(e), 500
-    
+        return jsonify({'error': str(e)})
+
+# Ruta para agregar un nuevo usuario
+@app.route('/agregar_usuario', methods=['POST'])
+def agregar_usuario_route():
+    try:
+        data = request.get_json()
+        nombre = data['nombre']
+        email = data['email']
+        placa = data['placa']
+        tipe = data['tipe']
+        password = data['password']
+
+        # Conecta a la base de datos MySQL
+        connection = pymysql.connect(**db_params)
+
+        # Crea un cursor
+        cursor = connection.cursor()
+
+        # Realiza la actualización en la base de datos
+        query = INSERT_U
+        cursor.execute(query, (nombre, password, placa, tipe, email))
+
+        # Confirma la transacción
+        connection.commit()
+
+        # Cierra la conexión
+        cursor.close()
+        connection.close()
+
+        return jsonify({'mensaje': 'Registro actualizado correctamente'})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 @app.route('/get_data_1')
 def get_data_1():
@@ -114,6 +174,16 @@ def get_data_Usuario():
     data = app.config.get('asignacion', [])
     return jsonify(data)
 
+@app.route('/get_data_Usuario1')
+def get_data_Usuario1():
+    data = app.config.get('asignacion1', [])
+    return jsonify(data)
+
+@app.route('/obtener_usuarios')
+def obtener_usuarios():
+    data = app.config.get('data_U', [])
+    return jsonify(data)
+
 @app.route('/Page1')
 def Piso1():
     return render_template("Foot1.html")
@@ -137,13 +207,15 @@ def Piso5():
 @app.route('/Graphics')
 def Graphics():
      # Datos para el gráfico circular
-    labels = ['Etiqueta 1', 'Etiqueta 2', 'Etiqueta 3']
-    data = [50, 40, 10]
-    return render_template("Graphics.html", labels=labels, data=data)
+    return render_template("Graphics.html")
 
 @app.route('/Usuario')
 def Usuario():
     return render_template("Usuario.html")
+
+@app.route('/M_Users')
+def M_Users():
+    return render_template("M_Users.html")
 
 # Manejo de errores 404
 @app.errorhandler(404)

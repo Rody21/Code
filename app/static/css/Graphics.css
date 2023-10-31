@@ -1,18 +1,33 @@
 body .container {
-    display: flex;
     width: 100%;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
-h1{
+.fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    /* Espacio entre filas */
+    text-align: center;
+}
+
+.h1 {
     margin-bottom: 2rem;
     text-align: center;
 }
 
-content{
+.content {
     width: 30%;
-    height: 30%;
+    /* Ancho de cada caja */
+    height: auto;
+    /* Altura de cada caja */
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
-
-canvas{
-    max-width: 100%;
+.centrado {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

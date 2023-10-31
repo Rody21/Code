@@ -308,6 +308,33 @@ body .container .Ocupado {
     border: 2px solid #567DF4;
 }
 
+body .container .Ocupado2 {
+    background-image: url(../img/car-blue.png);
+    background-position: center;
+    width: 75.5px;
+    height: 24px;
+    color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20%;
+    border: 2px solid #567DF4;
+}
+
+body .container .Ocupado3 {
+    background-image: url(../img/car-green.png);
+    background-position: center;
+    width: 75.5px;
+    height: 24px;
+    color: transparent;
+    /* background-color: pink; */
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 20%;
+    border: 2px solid #567DF4;
+}
+
 body .container .Desocupado {
     background-image: none;
 }

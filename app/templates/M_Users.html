@@ -1,0 +1,43 @@
+{% extends './layout.html' %}
+{% block css%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/M_Users.css') }}">{% endblock%}
+
+{% block tittle %}Usuarios{% endblock %}
+
+{% block body %}
+<h1>Lista de Usuarios</h1>
+
+<table border="1" id="tabla-usuarios">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Placa</th>
+        <th>Correo</th>
+        <th>Tipo</th>
+    </tr>
+</table>
+
+<form id="formulario-usuario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="placa">Placa:</label>
+    <input type="text" id="placa" name="placa" pattern="[A-Z0-9]{3}-[A-Z0-9]{3}" required><br><br>
+
+    <label for="tipe">Tipo:</label>
+    <select id="tipe" name="tipe">
+        <option value="1">Administrador</option>
+        <option value="2">Usuario</option>
+    </select><br><br>
+
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <input type="submit" value="Agregar Usuario">
+</form>
+
+<script src="{{ url_for('static', filename='js/M_Users.js') }}"></script>
+{% endblock %}

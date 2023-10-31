@@ -1,12 +1,13 @@
 import os
 import mysql.connector
+from config import *
 
 def connectionBD():
     mydb = mysql.connector.connect(
-        host = "database-1.c4zfdvzds5m5.us-east-1.rds.amazonaws.com",
-        user = "admin",
-        passwd = "Lolipop23",
-        database = "PF"
+        host = HOST,
+        user = USER,
+        passwd = PASSWORD,
+        database = DB
     )
     if mydb:
         print("Conexion exitosa")
