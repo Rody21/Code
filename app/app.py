@@ -8,6 +8,9 @@ from config import *
 import re
 import logging
 import pymysql
+import csv
+import time
+from datetime import datetime
 
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO) 
@@ -15,6 +18,7 @@ app.secret_key = '36e42c5ca26b572eef30e0573a6701614eb86e828bf60d9c41b5edfcc50b8d
 
 # Función para realizar la consulta a la base de datos y actualizar los datos
 def actualizar_datos(query, data_key):
+    start_time = time.time()
     conexion_MySQLdb = connectionBD()
     mycursor = conexion_MySQLdb.cursor(dictionary=True)
     mycursor.execute(query)
@@ -22,8 +26,20 @@ def actualizar_datos(query, data_key):
     total = mycursor.rowcount
     mycursor.close()
     conexion_MySQLdb.close()
+    end_time = time.time()  # Registra la hora de finalización
+    timestamp = datetime.now()
+    elapsed_time = end_time - start_time  # Calcula el tiempo transcurrido
     print(f"Actualización de datos a las {datetime.now()}: {total} registros")
     app.config[data_key] = data
+    
+    current_date = timestamp.strftime("%Y-%m-%d")
+    csv_file_path = f"{current_date}.csv"
+
+    # Guarda los datos en formato CSV en la misma carpeta
+    with open(csv_file_path, 'a', newline='') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        # Escribir una fila con los datos de la consulta
+        csv_writer.writerow([query, timestamp, elapsed_time, total])
 
 def configurar_programador(query, intervalo, data_key):
     scheduler = BackgroundScheduler()

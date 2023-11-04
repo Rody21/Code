@@ -29,7 +29,7 @@
         <input class="controls" type="password" id="password" name="password" required autocomplete="off">
 
         <label for="placa">Placa:</label>
-        <input class="controls" type="text" id "placa" name="placa" pattern="[A-Z0-9]{3}-[A-Z0-9]{3}"
+        <input class="controls" type="text" id="placa" name="placa" pattern="[A-Z0-9]{3}-[A-Z0-9]{3}"
             placeholder="xxx-123" required><br><br>
 
         <label for="tipe">Tipo:</label>
@@ -41,7 +41,6 @@
         <input class="buttons" type="submit" value="Agregar Usuario">
     </section>
 </form>
-
 
 <script src="{{ url_for('static', filename='js/M_Users.js') }}"></script>
 {% endblock %}

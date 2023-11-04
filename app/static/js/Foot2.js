@@ -24,7 +24,7 @@ if (window.location.pathname === "/Page2") {
               div_process.classList.remove("Ocupado");
               div_process.classList.add("Desocupado", "Park");
             }
-          } else {
+          } else if(index_1 == 1) {
             //Ocupado
             if (div_process.classList.contains("Ocupado")) {
               countZero++;
@@ -33,6 +33,10 @@ if (window.location.pathname === "/Page2") {
               div_process.classList.remove("Desocupado", "Park");
               div_process.classList.add("Ocupado");
             }
+          }else{
+            div_process.classList.remove("Ocupado");
+            div_process.classList.remove("Desocupado", "Park");
+            div_process.classList.add("arreglado");
           }
         }
 
