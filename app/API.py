@@ -53,7 +53,13 @@ def update_parking_status(connection, id_controlador, lecturas):
 
     for leactura in lecturas:
         valor = lecturas[idSensor-1]
-        update_query = f"UPDATE Parking2 SET valor = {valor} WHERE id_sensor = {idSensor} AND id_controlador = {piso};"
+        
+        if valor == 1:
+            update_query = f"UPDATE Parking2 SET valor = 1, asignado = 0 WHERE id_sensor = {idSensor} AND id_controlador = {piso};"
+        else:
+            update_query = f"UPDATE Parking2 SET valor = 0 WHERE id_sensor = {idSensor} AND id_controlador = {piso};"
+            
+
         cursor.execute(update_query)
         idSensor+=1
 
