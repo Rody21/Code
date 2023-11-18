@@ -20,22 +20,17 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* Adjusted to spread elements */
     align-items: center;
-    /* Center vertically */
     color: white;
     padding: 10px 0;
-    /* Adjusted padding */
 }
 
 header #Logout {
     margin-right: 2.5%;
-    /* Adjusted margin */
 }
 
 header h3 {
     font-size: 24px;
-    /* Adjusted font size for better responsiveness */
 }
 
 header a {
