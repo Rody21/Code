@@ -118,8 +118,8 @@ if (window.location.pathname === "/Graphics") {
         }
       }
 
-      console.log("Cantidad de registros con valor 1: " + Ocu_P1_N);
-      console.log("Cantidad de registros con valor 0: " + Des_P1_N);
+      console.log("Cantidad de registros con valor 1: " + Ocu_P1_D);
+      console.log("Cantidad de registros con valor 0: " + Des_P1_D);
     } catch (error) {
       throw error;
     }
@@ -292,13 +292,16 @@ if (window.location.pathname === "/Graphics") {
         existingChart.destroy();
       }
       if (existingChart1) {
-        existingChart.destroy();
+        existingChart1.destroy();
       }
       if (existingChart2) {
-        existingChart.destroy();
+        existingChart2.destroy();
       }
 
-      var ctx = document.getElementById("Piso1").getContext("2d");
+      var ctx = existingCanvas.getContext("2d");
+      var ctx1 = existingCanvas1.getContext("2d");
+      var ctx2 = existingCanvas2.getContext("2d");
+
       var myChart = new Chart(ctx, {
         type: Tipo,
         data: {
@@ -316,9 +319,7 @@ if (window.location.pathname === "/Graphics") {
           },
         },
       });
-
-      var ctx = document.getElementById("Discapacitados1").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx1, {
         type: Tipo,
         data: {
           labels: labels,
@@ -335,9 +336,7 @@ if (window.location.pathname === "/Graphics") {
           },
         },
       });
-
-      var ctx = document.getElementById("Visitantes1").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx2, {
         type: Tipo,
         data: {
           labels: labels,
@@ -375,13 +374,16 @@ if (window.location.pathname === "/Graphics") {
         existingChart.destroy();
       }
       if (existingChart1) {
-        existingChart.destroy();
+        existingChart1.destroy();
       }
       if (existingChart2) {
-        existingChart.destroy();
+        existingChart2.destroy();
       }
 
-      var ctx = document.getElementById("Piso2").getContext("2d");
+      var ctx = existingCanvas.getContext("2d");
+      var ctx1 = existingCanvas1.getContext("2d");
+      var ctx2 = existingCanvas2.getContext("2d");
+
       var myChart = new Chart(ctx, {
         type: Tipo,
         data: {
@@ -400,8 +402,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Discapacitados2").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx1, {
         type: Tipo,
         data: {
           labels: labels,
@@ -419,8 +420,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Visitantes2").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx2, {
         type: Tipo,
         data: {
           labels: labels,
@@ -458,13 +458,15 @@ if (window.location.pathname === "/Graphics") {
         existingChart.destroy();
       }
       if (existingChart1) {
-        existingChart.destroy();
+        existingChart1.destroy();
       }
       if (existingChart2) {
-        existingChart.destroy();
+        existingChart2.destroy();
       }
 
       var ctx = document.getElementById("Piso3").getContext("2d");
+      var ctx1 = document.getElementById("Discapacitados3").getContext("2d");
+      var ctx2 = document.getElementById("Visitantes3").getContext("2d");
       var myChart = new Chart(ctx, {
         type: Tipo,
         data: {
@@ -483,8 +485,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Discapacitados3").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx1, {
         type: Tipo,
         data: {
           labels: labels,
@@ -502,8 +503,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Visitantes3").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx2, {
         type: Tipo,
         data: {
           labels: labels,
@@ -541,13 +541,15 @@ if (window.location.pathname === "/Graphics") {
         existingChart.destroy();
       }
       if (existingChart1) {
-        existingChart.destroy();
+        existingChart1.destroy();
       }
       if (existingChart2) {
-        existingChart.destroy();
+        existingChart2.destroy();
       }
 
-      var ctx = document.getElementById("Piso4").getContext("2d");
+      var ctx = existingCanvas.getContext("2d");
+      var ctx1 = existingCanvas1.getContext("2d");
+      var ctx2 = existingCanvas2.getContext("2d");
       var myChart = new Chart(ctx, {
         type: Tipo,
         data: {
@@ -566,8 +568,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Discapacitados4").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx1, {
         type: Tipo,
         data: {
           labels: labels,
@@ -585,8 +586,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Visitantes4").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx2, {
         type: Tipo,
         data: {
           labels: labels,
@@ -624,13 +624,16 @@ if (window.location.pathname === "/Graphics") {
         existingChart.destroy();
       }
       if (existingChart1) {
-        existingChart.destroy();
+        existingChart1.destroy();
       }
       if (existingChart2) {
-        existingChart.destroy();
+        existingChart2.destroy();
       }
 
       var ctx = document.getElementById("Piso5").getContext("2d");
+      var ctx1 = existingCanvas1.getContext("2d");
+      var ctx2 = existingCanvas2.getContext("2d");
+
       var myChart = new Chart(ctx, {
         type: Tipo,
         data: {
@@ -649,8 +652,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Discapacitados5").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx1, {
         type: Tipo,
         data: {
           labels: labels,
@@ -668,8 +670,7 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var ctx = document.getElementById("Visitantes5").getContext("2d");
-      var myChart = new Chart(ctx, {
+      var myChart = new Chart(ctx2, {
         type: Tipo,
         data: {
           labels: labels,

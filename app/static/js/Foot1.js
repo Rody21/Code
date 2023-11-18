@@ -18,7 +18,6 @@ if (window.location.pathname === "/Page1") {
             //Desocupado
             if (div_process.classList.contains("Desocupado")) {
               countOne++;
-              console.log(countZero);
             } else {
               div_process.classList.remove("Ocupado");
               div_process.classList.add("Desocupado", "Park");
@@ -27,7 +26,6 @@ if (window.location.pathname === "/Page1") {
             //Ocupado
             if (div_process.classList.contains("Ocupado")) {
               countZero++;
-              console.log(countOne);
             } else {
               div_process.classList.remove("Desocupado", "Park");
               div_process.classList.add("Ocupado");
@@ -42,7 +40,6 @@ if (window.location.pathname === "/Page1") {
             //Desocupado
             if (div_process.classList.contains("Desocupado")) {
               countOne2++;
-              console.log(countZero2);
             } else {
               div_process.classList.remove("Ocupado2");
               div_process.classList.add("Desocupado", "Park");
@@ -51,7 +48,6 @@ if (window.location.pathname === "/Page1") {
             //Ocupado
             if (div_process.classList.contains("Ocupado2")) {
               countZero2++;
-              console.log(countOne2);
             } else {
               div_process.classList.remove("Desocupado", "Park");
               div_process.classList.add("Ocupado2");
@@ -66,7 +62,6 @@ if (window.location.pathname === "/Page1") {
             //Desocupado
             if (div_process.classList.contains("Desocupado")) {
               countOne3++;
-              console.log(countZero3);
             } else {
               div_process.classList.remove("Ocupado3");
               div_process.classList.add("Desocupado", "Park");
@@ -75,7 +70,6 @@ if (window.location.pathname === "/Page1") {
             //Ocupado
             if (div_process.classList.contains("Ocupado3")) {
               countZero3++;
-              console.log(countOne3);
             } else {
               div_process.classList.remove("Desocupado", "Park");
               div_process.classList.add("Ocupado3");

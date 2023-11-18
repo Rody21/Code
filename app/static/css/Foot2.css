@@ -300,7 +300,6 @@ body .container .Ocupado {
     width: 75.5px;
     height: 24px;
     color: transparent;
-    /* background-color: pink; */
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -327,12 +326,21 @@ body .container .Ocupado3 {
     width: 75.5px;
     height: 24px;
     color: transparent;
-    /* background-color: pink; */
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     border-radius: 20%;
     border: 2px solid #567DF4;
+}
+
+body .container .arreglado {
+    background-position: center;
+    width: 75.5px;
+    height: 24px;
+    color: transparent;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 body .container .Desocupado {

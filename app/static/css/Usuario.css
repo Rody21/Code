@@ -9,7 +9,6 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    flex: 1;
     font-family: Arial, Helvetica, sans-serif;
     background-image: url(../img/1366_2000.jpg);
 }
@@ -20,21 +19,18 @@ header {
     text-align: center;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     color: white;
-}
-
-header div {
-    margin: 0 2.5% 0 2.5%;
-    padding: 1% 0 1% 0;
+    padding: 10px 0;
 }
 
 header #Logout {
-    margin: 1% 2.5% 0 60%;
+    margin-right: 2.5%;
 }
 
 header h3 {
-    font-size: 30px;
+    font-size: 24px;
 }
 
 header a {
@@ -42,42 +38,54 @@ header a {
     color: white;
 }
 
-
 body .Asignacion {
     position: absolute;
     display: flex;
     background: #1DF333;
-    align-items: center;
     top: 50%;
-    left: 30%;
-    padding: 7px 25px 7px 7px;
-    align-items: center;
-    gap: 33px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7px 10px;
+    gap: 10px;
     flex-shrink: 0;
     justify-content: space-between;
-    width: 40%;
-    height: 10%;
+    width: 100%;
+    max-width: 400px;
     border-radius: 16px;
+    align-items: center;
 }
 
 body .Asignacion .banner {
     color: #FFF;
-
     font-family: Inter;
-    font-size: 30px;
-    font-style: normal;
+    font-size: 25px;
     font-weight: 600;
-    line-height: normal;
-    text-align: right;
+    text-align: center;
 }
 
 body .Asignacion .Space {
     display: flex;
-    padding: 19px 36px;
+    padding: 10px 20px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-
+    gap: 5px;
     border-radius: 10px;
     background: #FFF;
+}
+
+body .Asignacion .N_Space {
+    display: none;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    header h3 {
+        font-size: 18px;
+        /* Adjust font size for smaller screens */
+    }
+
+    body .Asignacion .banner {
+        font-size: 16px;
+        /* Adjust font size for smaller screens */
+    }
 }

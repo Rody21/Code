@@ -18,25 +18,28 @@
 </table>
 
 <form id="formulario-usuario">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br><br>
+    <section class="form-login">
+        <label for="nombre">Nombre:</label>
+        <input class="controls" type="text" id="nombre" name="nombre" required><br><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
+        <label for="email">Email:</label>
+        <input class="controls" type="email" id="email" name="email" required autocomplete="off">
 
-    <label for="placa">Placa:</label>
-    <input type="text" id="placa" name="placa" pattern="[A-Z0-9]{3}-[A-Z0-9]{3}" required><br><br>
+        <label for="password">Contraseña:</label>
+        <input class="controls" type="password" id="password" name="password" required autocomplete="off">
 
-    <label for="tipe">Tipo:</label>
-    <select id="tipe" name="tipe">
-        <option value="1">Administrador</option>
-        <option value="2">Usuario</option>
-    </select><br><br>
+        <label for="placa">Placa:</label>
+        <input class="controls" type="text" id="placa" name="placa" pattern="[A-Z0-9]{3}-[A-Z0-9]{3}"
+            placeholder="xxx-123" required><br><br>
 
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" required><br><br>
+        <label for="tipe">Tipo:</label>
+        <select class="controls" id="tipe" name="tipe">
+            <option value="1">Administrador</option>
+            <option value="2">Usuario</option>
+        </select><br><br>
 
-    <input type="submit" value="Agregar Usuario">
+        <input class="buttons" type="submit" value="Agregar Usuario">
+    </section>
 </form>
 
 <script src="{{ url_for('static', filename='js/M_Users.js') }}"></script>
