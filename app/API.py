@@ -15,8 +15,13 @@ def query_available_parking(connection):
     cursor = connection.cursor()
     
     # Consulta SQL para obtener espacios de estacionamiento disponibles
+<<<<<<< Updated upstream
     query = "SELECT * FROM PF.Parking2 WHERE valor = 0 AND asignado = 0"
     
+=======
+    query = "SELECT * FROM PF.Parking WHERE valor = 0 AND asignado = 0"
+
+>>>>>>> Stashed changes
     # Ejecutar la consulta
     cursor.execute(query)
     
@@ -29,16 +34,20 @@ def query_available_parking(connection):
     # Retornar los espacios de estacionamiento disponibles
     return available_parking
 
+<<<<<<< Updated upstream
 
 def update_parking_status(connection, response_data):
 
+=======
+def update_parking_assignation_status(connection, response_data):
+>>>>>>> Stashed changes
     cursor = connection.cursor()
 
     piso = response_data['piso']
 
     posicion = response_data['posicion']
 
-    update_query = f"UPDATE Parking2 SET asignado = 1 WHERE id_sensor = {posicion} AND id_controlador = {piso};"
+    update_query = f"UPDATE Parking SET asignado = 1 WHERE id_sensor = {posicion} AND id_controlador = {piso};"
 
     print(update_query)
 
@@ -47,6 +56,28 @@ def update_parking_status(connection, response_data):
     connection.commit()
 
 
+<<<<<<< Updated upstream
+=======
+def update_parking_status(connection, id_controlador, lecturas):
+    cursor = connection.cursor()
+    piso = id_controlador
+    idSensor = 1
+
+    for leactura in lecturas:
+        valor = lecturas[idSensor - 1]
+
+        if valor == 1:
+            update_query = f"UPDATE Parking SET valor = 1, asignado = 0 WHERE id_sensor = {idSensor} AND id_controlador = {piso};"
+        else:
+            update_query = f"UPDATE Parking SET valor = 0 WHERE id_sensor = {idSensor} AND id_controlador = {piso};"
+
+        cursor.execute(update_query)
+        idSensor += 1
+
+    connection.commit()
+
+
+>>>>>>> Stashed changes
 # Conectar a la base de datos
 
 db_params = {
@@ -95,7 +126,12 @@ def get_assigned_position():
             print("Conexión cerrada.")
 
 
+<<<<<<< Updated upstream
 
 if __name__ == '__main__':
     app.run(debug=True)
 
+=======
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
+>>>>>>> Stashed changes

@@ -10,8 +10,68 @@ import logging
 import pymysql
 
 app = Flask(__name__)
+<<<<<<< Updated upstream
 app.logger.setLevel(logging.INFO) 
 app.secret_key = '36e42c5ca26b572eef30e0573a6701614eb86e828bf60d9c41b5edfcc50b8dad'
+=======
+app.logger.setLevel(logging.INFO)
+app.secret_key = "36e42c5ca26b572eef30e0573a6701614eb86e828bf60d9c41b5edfcc50b8dad"
+
+
+# Funciones API
+def query_available_parking(connection):
+    # Crear un objeto cursor
+    cursor = connection.cursor()
+
+    # Consulta SQL para obtener espacios de estacionamiento disponibles
+    query = "SELECT * FROM PF.Parking2 WHERE valor = 0 AND asignado = 0"
+
+    # Ejecutar la consulta
+    cursor.execute(query)
+
+    # Obtener los resultados
+    available_parking = cursor.fetchall()
+
+    # Cerrar el cursor
+    cursor.close()
+
+    # Retornar los espacios de estacionamiento disponibles
+    return available_parking
+
+
+def update_parking_assignation_status(connection, response_data):
+    cursor = connection.cursor()
+
+    piso = response_data["piso"]
+
+    posicion = response_data["posicion"]
+
+    update_query = f"UPDATE Parking2 SET asignado = 1 WHERE id_sensor = {posicion} AND id_controlador = {piso};"
+
+    cursor.execute(update_query)
+
+    connection.commit()
+
+
+def update_parking_status(connection, id_controlador, lecturas):
+    cursor = connection.cursor()
+    piso = id_controlador
+    idSensor = 1
+
+    for leactura in lecturas:
+        valor = lecturas[idSensor - 1]
+
+        if valor == 1:
+            update_query = f"UPDATE Parking2 SET valor = 1, asignado = 0 WHERE id_sensor = {idSensor} AND id_controlador = {piso};"
+        else:
+            update_query = f"UPDATE Parking2 SET valor = 0 WHERE id_sensor = {idSensor} AND id_controlador = {piso};"
+
+        cursor.execute(update_query)
+        idSensor += 1
+
+    connection.commit()
+
+>>>>>>> Stashed changes
 
 # Función para realizar la consulta a la base de datos y actualizar los datos
 def actualizar_datos(query, data_key):
