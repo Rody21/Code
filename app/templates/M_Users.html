@@ -17,30 +17,65 @@
     </tr>
 </table>
 
-<form id="formulario-usuario">
-    <section class="form-login">
-        <label for="nombre">Nombre:</label>
-        <input class="controls" type="text" id="nombre" name="nombre" required><br><br>
+<div class="tabs">
+    <button class="tablinks" onclick="openTab(event, 'agregar')">Agregar Usuario</button>
+    <button class="tablinks" onclick="openTab(event, 'quitar')">Quitar Usuario</button>
+</div>
 
-        <label for="email">Email:</label>
-        <input class="controls" type="email" id="email" name="email" required autocomplete="off">
+<div id="agregar" class="tab-content">
+    <form id="formulario-usuario">
+        <section class="form-login">
+            <label for="nombre">Nombre:</label>
+            <input class="controls" type="text" id="nombre" name="nombre" required><br><br>
 
-        <label for="password">Contraseña:</label>
-        <input class="controls" type="password" id="password" name="password" required autocomplete="off">
+            <label for="email">Email:</label>
+            <input class="controls" type="email" id="email" name="email" required autocomplete="off">
 
-        <label for="placa">Placa:</label>
-        <input class="controls" type="text" id="placa" name="placa" pattern="[A-Z0-9]{3}-[A-Z0-9]{3}"
-            placeholder="xxx-123" required><br><br>
+            <label for="password">Contraseña:</label>
+            <input class="controls" type="password" id="password" name="password" required autocomplete="off">
 
-        <label for="tipe">Tipo:</label>
-        <select class="controls" id="tipe" name="tipe">
-            <option value="1">Administrador</option>
-            <option value="2">Usuario</option>
-        </select><br><br>
+            <label for="placa">Placa:</label>
+            <input class="controls" type="text" id="placa" name="placa" pattern="[A-Z0-9]{3}-[A-Z0-9]{3}"
+                placeholder="xxx-123" required><br><br>
 
-        <input class="buttons" type="submit" value="Agregar Usuario">
-    </section>
-</form>
+            <label for="tipe">Tipo:</label>
+            <select class="controls" id="tipe" name="tipe">
+                <option value="1">Administrador</option>
+                <option value="2">Usuario</option>
+            </select><br><br>
 
+            <input class="buttons" type="submit" value="Agregar Usuario">
+        </section>
+    </form>
+</div>
+
+<div id="quitar" class="tab-content hide">
+    <form id="formulario-usuario-eliminar">
+        <section class="form-eliminar">
+            <label for="dropdown">Seleccionar una opción:</label>
+            <select class="controls" id="dropdown" name="dropdown">
+
+            </select>
+            <input class="buttons" type="submit" value="Quitar Usuario">
+        </section>
+    </form>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            if (tabcontent[i].id === tabName) {
+                tabcontent[i].classList.add("show");
+                tabcontent[i].classList.remove("hide");
+            } else {
+                tabcontent[i].classList.add("hide");
+                tabcontent[i].classList.remove("show");
+            }
+        }
+    }
+
+</script>
 <script src="{{ url_for('static', filename='js/M_Users.js') }}"></script>
 {% endblock %}

@@ -153,8 +153,8 @@ if (window.location.pathname === "/Graphics") {
         }
       }
 
-      console.log("Cantidad de registros con valor 1: " + Ocu_P2_N);
-      console.log("Cantidad de registros con valor 0: " + Des_P2_N);
+      console.log("Cantidad de registros Visit2 con valor 1: " + Ocu_P2_V);
+      console.log("Cantidad de registros Visit2 con valor 0: " + Des_P2_V);
     } catch (error) {
       throw error;
     }
