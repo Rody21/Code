@@ -39,7 +39,7 @@ if (window.location.pathname === "/Graphics") {
   let Ocu_P5_V = 0;
   let Des_P5_V = 0;
 
-  let Tipo = "doughnut";
+  let Tipo = "pie";
 
   async function Ficas() {
     try {
@@ -360,15 +360,12 @@ if (window.location.pathname === "/Graphics") {
       var labels = ["Ocupado", "Libre"];
       var data = [Ocu_P2_N, Des_P1_N];
       var data_D = [Ocu_P2_D, Des_P2_D];
-      var data_V = [Ocu_P2_V, Des_P2_V];
 
       var existingCanvas = document.getElementById("Piso2");
       var existingCanvas1 = document.getElementById("Discapacitados2");
-      var existingCanvas2 = document.getElementById("Visitantes2");
 
       var existingChart = Chart.getChart(existingCanvas);
       var existingChart1 = Chart.getChart(existingCanvas1);
-      var existingChart2 = Chart.getChart(existingCanvas2);
 
       if (existingChart) {
         existingChart.destroy();
@@ -376,13 +373,13 @@ if (window.location.pathname === "/Graphics") {
       if (existingChart1) {
         existingChart1.destroy();
       }
-      if (existingChart2) {
-        existingChart2.destroy();
-      }
+      // if (existingChart2) {
+      //   existingChart2.destroy();
+      // }
 
       var ctx = existingCanvas.getContext("2d");
       var ctx1 = existingCanvas1.getContext("2d");
-      var ctx2 = existingCanvas2.getContext("2d");
+      // var ctx2 = existingCanvas2.getContext("2d");
 
       var myChart = new Chart(ctx, {
         type: Tipo,
@@ -420,23 +417,23 @@ if (window.location.pathname === "/Graphics") {
         },
       });
 
-      var myChart = new Chart(ctx2, {
-        type: Tipo,
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              data: data_V,
-              backgroundColor: ["red", "blue"],
-            },
-          ],
-        },
-        options: {
-          animation: {
-            duration: 0, // Deshabilita la animación al crear el nuevo gráfico
-          },
-        },
-      });
+      // var myChart = new Chart(ctx2, {
+      //   type: Tipo,
+      //   data: {
+      //     labels: labels,
+      //     datasets: [
+      //       {
+      //         data: data_V,
+      //         backgroundColor: ["red", "blue"],
+      //       },
+      //     ],
+      //   },
+      //   options: {
+      //     animation: {
+      //       duration: 0, // Deshabilita la animación al crear el nuevo gráfico
+      //     },
+      //   },
+      // });
     }
 
     function Vis3() {

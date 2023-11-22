@@ -1,10 +1,18 @@
-if (window.location.pathname === "/Usuario") {
+function ejecutarSegunPagina() {
+  const mensajeAsignacionP = document.getElementById("mensajeAsignacion");
+  const mensajeNumeroP = document.getElementById("mostrar");
+  const placaUsuario = window.location.pathname.split("/").pop();
+
+  console.log("Placa del usuario:", placaUsuario);
+  console.log("Pathname actual:", window.location.pathname);
+  
   var controlador;
   var sensor;
   var ejecucionContinua = true; // Variable para controlar la ejecución
   var alrt = false;
-  const mensajeAsignacionP = document.getElementById("mensajeAsignacion");
-  const mensajeNumeroP = document.getElementById("mostrar");
+
+  // Puedes utilizar la variable "placaUsuario" en tu archivo JavaScript según sea necesario
+  console.log("Placa del usuario:", placaUsuario);
 
   function Assing() {
     if (!ejecucionContinua) return;
@@ -159,3 +167,7 @@ if (window.location.pathname === "/Usuario") {
     }
   }, 1000);
 }
+
+window.onload = function () {
+  ejecutarSegunPagina();
+};

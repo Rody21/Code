@@ -1,7 +1,6 @@
 .vscode
 *.env
 *PF
-querys.py
-config.py
 *.csv
 Pruebas.py
+samples.py

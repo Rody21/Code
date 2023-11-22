@@ -144,11 +144,13 @@ def login():
             session["logueado"] = True
             session["id"] = data_U[0]
             session["id_rol"] = data_U[4]
+            session["placa"] = data_U[3]
 
             if session["id_rol"] == 1:
                 return redirect(url_for("Piso1"))
             elif session["id_rol"] == 2:
-                return redirect(url_for("Usuario"))
+                placa_U = session.get("placa")
+                return redirect(url_for("Usuario", placa=placa_U))
         else:
             return render_template("index.html")
 
@@ -197,6 +199,9 @@ def agregar_usuario_route():
         placa = data["placa"]
         tipe = data["tipe"]
         password = data["password"]
+
+        if tipe == 1:
+            placa = "N/A"
 
         connection = pymysql.connect(**db_params)
         cursor = connection.cursor()
@@ -313,9 +318,9 @@ def Graphics():
     return render_template("Graphics.html")
 
 
-@app.route("/Usuario")
-def Usuario():
-    return render_template("Usuario.html")
+@app.route("/Usuario/<placa>", methods=["GET"])
+def Usuario(placa):
+    return render_template("Usuario.html", placa=placa)
 
 
 @app.route("/M_Users")
